@@ -1,0 +1,623 @@
+<!--
+DATA		RESPONSÃVEL		 ALTERAÃ‡ÃƒO
+29/07/2010	Robson Diniz	 ERRO DE SINTAXE PERCEBIDO APÃ“S MIGRAÃ‡ÃƒO PARA O SQL 2005
+30/07/2010	Robson Diniz	 Ajuste para Inscrição Estadual com 9 DÃ­gitos.
+10/08/2010	Robson Diniz	 Sintaxe incompatÃ­vel com SQL 2005.
+02/04/2013  Andréa Cerqueira Acrescentar data da inscrição e o motivo da situação quando a situação for inapto ou intimado para inaptidão
+13/08/2015  Jorge Chagas     Incluusão de Status da Conta Domicílio Tributário
+15/09/2015  Jorge Chagas     Inclusão dos dados do Contador
+23/11/2015  Miguel Lima		 Ajustes em alguns campos e alteração de layout
+18/01/2016  Andréa Cerqueira Correção no número do endereço da empresa, estava exibindo o mesmo número do endereço do contador
+-->
+
+
+<html>
+
+<head>
+    <title>Consulta ao Cadastro</title>
+    <meta http-equiv="Content-Type" content="text/xhtml; charset=UTF-8" />
+    <style type="text/css">
+        < !-- .combo {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 7pt;
+            color: #FFFFFF;
+            font-weight: bolder
+        }
+
+        .input {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 7pt;
+            color: #000000;
+            background-color: #9EBAD9;
+            height: 17px
+        }
+
+        .conteudo {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 7pt;
+            color: #000000;
+            text-decoration: none;
+            height: 56px;
+        }
+
+        .titulo {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 7pt;
+            color: #000000
+        }
+
+        .outrasnoticias {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 7pt;
+            color: #000000;
+            height: 15px;
+            background-color: #F5D2AA
+        }
+
+        .botao {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 7pt;
+            color: #000000
+        }
+
+        #Table16 {
+            width: 100%;
+            height: 0px;
+        }
+
+        #Table17 {
+            width: 100%;
+            height: 18px;
+        }
+
+        #Table8 {
+            width: 102%;
+        }
+
+        .style26 {
+            height: 18px;
+        }
+
+        #Table20 {
+            width: 100%;
+            margin-left: 0px;
+            height: 5px;
+        }
+
+        .style88 {
+            width: 268435456px;
+        }
+
+        .style89 {
+            height: 22px;
+        }
+
+        -->
+    </style>
+    <link rel="stylesheet" href="/estilos/tabelas.css">
+</head>
+
+<body bgcolor="#fafafa" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"
+    onLoad="MM_preloadImages('/imagens/barrazul/voltar_a.gif','/imagens/barrazul/topo_a.gif','/imagens/barrazul/inicial_a.gif')">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%" ID="Table1">
+        <tr>
+            <td height="11" bgcolor="#d5d5d5">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" height="11" ID="Table2">
+                    <tr>
+                        <td width="12" height="11"><A href="javascript:history.back();"><IMG height=11
+                                    src="/imagens/barrazul/voltar_topo.gif" width=12 border=0></A></td>
+                        <td width="12" height="11"><A href="/default.htm" target=_top><IMG height=11
+                                    src="/imagens/barrazul/inicial_topo.gif" width=12 border=0></A><a name="topo"></a>
+                        </td>
+                        <td height="11" valign="center" align="right">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" height="11" ID="Table3">
+                                <tr valign="center" align="right">
+                                    <td><IMG height=11 src="/imagens/titulos/tributos.gif" width=50><IMG height=11
+                                            src="/imagens/titulos/separa.gif" width=5><IMG height=11
+                                            src="/imagens/titulos/consultas.gif" width=59><IMG height=11
+                                            src="/imagens/titulos/separa.gif" width=5><IMG height=11
+                                            src="/imagens/titulos/cadastro.gif" width=139></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td height="1"><IMG height=1 src="/imagens/px_preto.gif" width="100%"></td>
+        </tr>
+        <tr valign="top" class="conteudo">
+            <td>
+                <table border="0" width="670" align="center" class="conteudo" id="Table4">
+                    <tr>
+                        <td colspan="5"><b>
+                                <h3>
+                                    <center>Consulta Básica ao Cadastro do ICMS da Bahia</center>
+                                </h3>
+                            </b> </td>
+                        <!--<td align="right"> <b>Cadastro atualizado atÃ©:&nbsp;&nbsp;<font color="6699CC">17/09/2007</font></b></td>-->
+                    </tr>
+                </table>
+                <table border="0" width="670" align="center" class="conteudo" id="Table5">
+                    <tr valign="top">
+                        <td>
+                            <p>
+                                <table border="0" width="670" cellspacing="2" cellpadding="2" class="conteudo"
+                                    id="Table6">
+
+                        <th colspan="5" bgcolor="#6699cc">
+                            <font color="#ffffff"><b>Dados da empresa</b></font>
+                        </th>
+
+                    <tr bgcolor="#e2ecf5">
+                        <td colspan="5"><b>Identifica&ccedil;&atilde;o</b></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"><b>CNPJ:</b>&nbsp;73.849.952/0009-05</td>
+                        <td colspan="1">
+                            <b>Inscri&ccedil;&atilde;o Estadual:</b>&nbsp;112.613.736&nbsp;NO&nbsp; </td>
+
+
+                        <!--
+              <tr>
+				<td colspan="2"><b>Contribuinte Micro Empreendedor Individual:</b>&nbsp;&nbsp; NÃ£o</td>
+              </tr>
+              -->
+
+                    <tr>
+                        <td colspan="4"><b>Raz&atilde;o Social:</b>&nbsp;ATAKAREJO DISTRIBUIDOR DE ALIMENTOS E BEBIDAS
+                            S.A </td>
+
+                        <td colspan="1"> &nbsp;</td>
+                    </tr>
+
+        </tr>
+        <tr>
+            <td colspan="5"><b>Nome Fantasia:</b>&nbsp;ATAKAREJO DISTRIBUIDOR DE ALIMENTOS E BEBIDAS EIRELI</td>
+        </tr>
+
+        <tr>
+            <td colspan="5"><b>Natureza Jur&iacute;dica:</b>&nbsp;SOCIEDADE ANONIMA FECHADA</td>
+        </tr>
+
+        <tr>
+            <td colspan="5"><b>Unidade de Atendimento:</b> SGF/DIRAT/GERAP/CORAP METRO</td>
+        </tr>
+        <tr>
+            <td colspan="5"><b>Unidade de Fiscaliza&ccedil;&atilde;o:</b> IFEP COMERCIO</td>
+        </tr>
+
+    </table>
+    </p>
+
+    <p>
+        <table border="0" width="670" cellspacing="2" cellpadding="2" class="conteudo" id="Table6">
+
+            <tr>
+                <td colspan="5" bgcolor="#e2ecf5"> <b>Endere&ccedil;o</b></td>
+            </tr>
+            <tr>
+                <td colspan="5"><b>Logradouro:</b>&nbsp;AVENIDA OCTAVIO MANGABEIRA</td>
+            </tr>
+            <tr>
+                <td colspan="4"><b>N&uacute;mero:</b>&nbsp;12235 </td>
+                <td colspan="1"><b>Complemento:</b>&nbsp;RUA IEMANJA JARDIM PIATA </td>
+            </tr>
+            <tr>
+                <td colspan="4"><b>Bairro/Distrito:</b>&nbsp;PIATA</td>
+                <td colspan="1"><b>CEP:</b>&nbsp;41650-000</td>
+            </tr>
+            <tr>
+                <td colspan="4"><b>Munic&iacute;pio:</b>&nbsp;SALVADOR </td>
+                <td colspan="1"><b>UF:</b>&nbsp;BA</td>
+            </tr>
+            <tr>
+                <td colspan="4"><b>Telefone:</b>&nbsp;(71) 34608700</td>
+                <td colspan="1"><b>E-mail:</b>&nbsp;FISCAL@ATAKAREJO.COM.BR</td>
+            </tr>
+
+            <tr>
+                <td colspan="4"><b>Referência:</b>&nbsp;BAR DO ZECA </td>
+                <td colspan="1"><b>Localização:</b>&nbsp;ZONA URBANA </td>
+            </tr>
+
+            </td>
+
+            </tr>
+
+
+
+        </table>
+
+    </p>
+
+
+
+
+    <p>
+        <table border="0" width="670" cellspacing="2" cellpadding="2" class="conteudo" id="Table10">
+            <th colspan="5" bgcolor="#6699cc"><b>
+                    <font color="#ffffff">Domic&iacute;lio Tribut&aacute;rio Eletr&ocirc;nico - DTE</font>
+                </b></th>
+            <tr>
+                <td colspan="3" align="Left" class="style88"><b>Situa&ccedil;&atilde;o do DTE: </b>
+
+
+                    CREDENCIADO
+
+
+                </td>
+
+                <td colspan="2" width="50%" align="Left"><b>Data do Credenciamento:</b>
+
+                    29/07/2016
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" align="Left" class="style88"> <b>Situa&ccedil;&atilde;o da Conta: </b>
+
+
+                    ATIVA
+
+
+                <td colspan="2" align="Left">
+                    <b>Data da Criação da Conta:</b>
+                    29/07/2016
+                </td>
+                </td>
+            </tr>
+        </table>
+    </p>
+
+
+
+    <table border="0" width="670" cellspacing="2" cellpadding="2" class="conteudo" id="Table7">
+
+        <tr>
+            <th colspan="5" bgcolor="#6699cc"><b>
+                    <font color="#ffffff">Informa&ccedil;&otilde;es Complementares</font>
+                </b></th>
+        </tr>
+
+        <tr>
+            <td colspan="5"><b>Data de Inclus&atilde;o do Contribuinte:</b>&nbsp;21/10/2013</td>
+        </tr>
+        <tr>
+            <td colspan="5"><b>Atividade Econ&ocirc;mica Principal:</b></td>
+        </tr>
+        <tr>
+            <td colspan="5">4691500 - Comércio atacadista de mercadorias em geral, com predominância de produtos
+                alimentícios </td>
+        </tr>
+
+
+        <tr>
+            <td colspan="5"><b>Atividade Econ&ocirc;mica Secund&aacute;ria</b></td>
+        </tr>
+
+        <tr>
+            <td colspan="5" class="style89">1091102 - Fabricação de produtos de padaria e confeitaria com predominância
+                de produção própria </td>
+        </tr>
+
+        <tr>
+            <td colspan="5" class="style89">4635499 - Comércio atacadista de bebidas não especificadas anteriormente
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="5" class="style89">4639701 - Comércio atacadista de produtos alimentícios em geral </td>
+        </tr>
+
+        <tr>
+            <td colspan="5" class="style89">4646002 - Comércio atacadista de produtos de higiene pessoal </td>
+        </tr>
+
+        <tr>
+            <td colspan="5" class="style89">4693100 - Comércio atacadista de mercadorias em geral, sem predominância de
+                alimentos ou de insumos agropecuários </td>
+        </tr>
+
+        <tr>
+            <td colspan="5" class="style89">4711301 - Comércio varejista de mercadorias em geral, com predominância de
+                produtos alimentícios - hipermercados </td>
+        </tr>
+
+        <tr>
+            <td colspan="5" class="style89">4711302 - Comércio varejista de mercadorias em geral, com predominância de
+                produtos alimentícios - supermercados </td>
+        </tr>
+
+        <tr>
+            <td colspan="5" class="style89">4721103 - Comércio varejista de laticínios e frios </td>
+        </tr>
+
+        <tr>
+            <td colspan="5" class="style89">4722901 - Comércio varejista de carnes - açougues </td>
+        </tr>
+
+        <tr>
+            <td colspan="5" class="style89">4723700 - Comércio varejista de bebidas </td>
+        </tr>
+
+        <tr>
+            <td colspan="5" class="style89">4724500 - Comércio varejista de hortifrutigranjeiros </td>
+        </tr>
+
+        <tr>
+            <td colspan="5" class="style89">4789099 - Comércio varejista de outros produtos não especificados
+                anteriormente </td>
+        </tr>
+
+        <tr>
+            <td colspan="5" class="style89">5611203 - Lanchonetes, casas de chá, de sucos e similares </td>
+        </tr>
+
+        <tr>
+            <td colspan="5" class="style89">8220200 - Atividades de teleatendimento </td>
+        </tr>
+
+        <tr>
+            <td colspan="5"><b>Unidade:</b>&nbsp;UNIDADE PRODUTIVA </td>
+        </tr>
+
+        <tr>
+            <td colspan="5"><b>Forma de Atuação</b></td>
+        </tr>
+
+        <tr>
+            <td colspan="5" class="style89">&nbsp;&nbsp;-&nbsp;&nbsp;ESTABELECIMENTO FIXO </td>
+        </tr>
+
+
+
+        <!--
+              <tr>
+                <td><b>Condição:</b>&nbsp;&nbsp;NORMAL                                            </B></td>
+                <td><b>Data de Entrega da DMA:</b>&nbsp;&nbsp;Dia 07 de cada mÃªs</td>
+              </tr>
+-->
+        <!--AUGUSTO SANTANA 02-03-2011-->
+        <!--
+			  <tr>
+                <td><b>Condição:</b>&nbsp;&nbsp;NORMAL                                            </td>
+                <td><b>Data de Entrega da DMA:</b>&nbsp;&nbsp;Dia 07 de cada mÃªs</td>
+              </tr>&nbsp;
+			  -->
+        <tr>
+            <td colspan="5"><b>Condi&ccedil;&atilde;o:</b>&nbsp;NORMAL </td>
+
+        </tr>&nbsp;
+        <!--AUGUSTO SANTANA 02-03-2011-->
+
+
+
+        <tr>
+            <td colspan="5"><b>Forma de pagamento:</b>&nbsp;C/CORRENTE FISCAL </td>
+        </tr>
+
+        <tr>
+            <td colspan="3"><b>Situa&ccedil;&atilde;o Cadastral Vigente:</b>&nbsp;ATIVO </td>
+
+        </tr>
+        <!-- Caso a situação seja INTIMADO PARA INAPTIDÃO OU INAPTO EXIBIR O MOTIVO-->
+
+
+        <tr>
+            <td colspan="1"></td>
+            <td colspan="1"></td>
+            <td colspan="1"></td>
+            <td colspan="1"></td>
+            <td colspan="1"></td>
+        </tr>
+
+    </table>
+
+
+    <table border=0 width=670 cellspacing=2 cellpadding=2 class="conteudo" ID="Table18">
+        <th colspan="3" bgcolor="#6699cc"><b>
+                <font color="#ffffff">Endere&ccedil;o de Correspondência</font>
+            </b></th>
+        <tr>
+            <td><b>Endereço:</b>&nbsp;AVENIDA OCTAVIO MANGABEIRA</td>
+            <td colspan="2"><b>Complemento:</b>&nbsp;RUA YEMANJA </td>
+
+        </tr>
+
+        <tr>
+            <td colspan="2"><b>Referência:</b>&nbsp;</td>
+            <td colspan="1"><b>Número:</b>&nbsp;12235 </td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><b>Bairro:</b>&nbsp;PIATA </td>
+            <td colspan="1"><b>CEP:</b>&nbsp;41650000</td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><b>Município:</b>&nbsp;SALVADOR </td>
+            <td colspan="1"><b>UF:</b>&nbsp;BA</td>
+        </tr>
+    </table>
+
+
+
+
+    <!--			<table border=0 width=670 cellspacing=2 cellpadding=2 class="conteudo" ID="Table19">
+                <tr>
+                    <td bgcolor="#6699cc" class="style1"><b><font color="#ffffff">Atividades Econ&ocirc;micas</font></b></td>
+                </tr>
+			</table>	-->
+
+
+
+
+    <p>
+
+        <table border="0" width="670" cellspacing="2" cellpadding="2" class="conteudo" id="Table11">
+            <th colspan="5" bgcolor="#6699cc"><b>
+                    <font color="#ffffff">Informa&ccedil;&otilde;es do Contador</font>
+                </b> </th>
+            <tr>
+                <td colspan="3"><b>Classificação CRC:</b>&nbsp;Profissional</td>
+                <td colspan="1"><b>CRC:</b>&nbsp;24707 -BA</td>
+                <td colspan="1"><b>Tipo CRC:</b>&nbsp;Originario</td>
+            </tr>
+
+            <tr>
+                <td colspan="5"><b>Nome:</b>&nbsp;MARCELO MORENO AMOR </td>
+
+            </tr>
+
+            <tr>
+                <td colspan="5" bgcolor="#e2ecf5"> <b>Responsável pela organiza&ccedil;ão contábil</b></td>
+            </tr>
+
+            <tr>
+                <td colspan="3"><b>Classificação CRC:</b>&nbsp;Profissional</td>
+                <td colspan="1"><b>CRC:</b>&nbsp;</td>
+                <td colspan="2"><b>Tipo CRC:</b>&nbsp;Originario</td>
+            </tr>
+
+            <tr>
+                <td colspan="5"><b>Nome:</b>&nbsp;</td>
+
+            </tr>
+
+            <tr>
+                <td colspan="5" bgcolor="#e2ecf5"> <b>Endere&ccedil;o</b></td>
+            </tr>
+
+            <tr>
+                <td colspan="5"><b>Endere&ccedil;o:</b>&nbsp;AVENIDA SANTIAGO DE COMPOSTELA APT 706 COND VILLA JA</td>
+            </tr>
+
+            <tr>
+                <td colspan="1"><b>N&uacute;mero:</b>&nbsp;425 </td>
+                <td colspan="2"><b>Bairro:</b>&nbsp;PARQUE BEL VISTA </td>
+                <td colspan="1"><b>Munic&iacute;pio:</b>&nbsp;SALVADOR </td>
+                <td colspan="1"><b>UF:</b>&nbsp;BA</td>
+            </tr>
+
+            <tr>
+                <td colspan="3"><b>Referencia:</b>&nbsp;</td>
+                <td colspan="2"><b>CEP:</b>&nbsp;40279150</td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><b>Telefone:</b>&nbsp;(71) 34608756</td>
+                <td colspan="1"><b>Celular:</b>&nbsp;() </td>
+                <td colspan="1"><b>Fax:</b>&nbsp;() </td>
+                <td colspan="1"><b>E-mail:</b>&nbsp;</td>
+            </tr>
+
+        </table>
+    </p>
+
+
+
+
+
+    <br>
+    <table width=684 border=0 cellpadding=2 cellspacing=2 bordercolor="#FFFFFF" bgcolor="#FFFFFF" class="conteudo"
+        id="Table12">
+        <tr bordercolor="#FFFFFF">
+
+        <tr bordercolor="#FFFFFF">
+            <td bordercolor="#D4D0C8" bgcolor="#E1E3F7"><b>Nota:</b>&nbsp;&nbsp; Os dados acima s&atilde;o baseados em
+                informa&ccedil;&otilde;es
+                fornecidas pelo contribuinte, estando sujeitos a posterior confirma&ccedil;&atilde;o
+                pelo Fisco </td>
+        </tr>
+    </table>
+    <br>
+    <table border=0 width=670 cellspacing=2 cellpadding=2 class="conteudo" ID="Table13">
+        <tr>
+            <td colspan="2"><b>Data da Consulta:</b>&nbsp;<font color="#6699cc"><b>24/03/2019</b></font>
+            </td>
+        </tr>
+    </table>
+    <br></p>
+    </td>
+    </tr>
+    </table>
+    </td>
+    </tr>
+    <tr valign="top" class="conteudo">
+        <td height="50">
+            <!-- #BeginLibraryItem "/Library/rodapeazul.lbi" -->
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" height="52" ID="Table14">
+
+                <script language="JavaScript">
+< !--
+                        function MM_swapImgRestore() { //v3.0
+                            var i, x, a = document.MM_sr; for (i = 0; a && i < a.length && (x = a[i]) && x.oSrc; i++) x.src = x.oSrc;
+                        }
+
+                    function MM_preloadImages() { //v3.0
+                        var d = document; if (d.images) {
+                            if (!d.MM_p) d.MM_p =
+                                newArray(); vari, j = d.MM_p.length, a = MM_preloadImages.arguments; for (i = 0; i < a.length; i++)
+                                if (a[i].indexOf("#") != 0) { d.MM_p[j] = new Image; d.MM_p[j++].src = a[i]; }
+                        }
+                    }
+
+                    function MM_findObj(n, d) { //v3.0
+                        var p, i, x; if (!d) d = document; if ((p = n.indexOf("?")) > 0 && parent.frames.length) {
+                            d = parent.frames[n.substring(p + 1)].document; n = n.substring(0, p);
+                        }
+                        if (!(x = d[n]) && d.all) x = d.all[n]; for (i = 0; !x && i <
+                            d.forms.length; i++)x = d.forms[i][n]; for (i =
+
+
+
+
+                                0; !x && d.layers && i < d.layers.length; i++)x = MM_findObj(n, d.layers[i].document); returnx;
+                    } functionMM_swapImage(){//v3.0vari,j=0,x,a=MM_swapImage.arguments;document.MM_sr=newArray;for(i=0;i<(a.length-2);i+=3)if((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+                    }
+//-->
+                </script>
+                <tr>
+                    <td valign="center" align="middle">
+                        <table width="450" border="0" cellspacing="0" cellpadding="0" height="13" ID="Table15">
+                            <tr>
+                                <td colspan="6" height="20">&nbsp;</td>
+                            </tr>
+                            <tr>
+
+                                <td width="59" height="13"><A
+                                        onMouseOver="MM_swapImage('voltar','','/imagens/barrazul/voltar_a.gif',1)"
+                                        onmouseout=MM_swapImgRestore() href="javascript:history.back();"><IMG height=13
+                                            src="/imagens/barrazul/voltar_i.gif" width=59 border=0 name=voltar></A></td>
+
+                                <td width="108"><A
+                                        onMouseOver="MM_swapImage('topo','','/imagens/barrazul/topo_a.gif',1)"
+                                        onmouseout=MM_swapImgRestore() href="#topo"><IMG height=13
+                                            src="/imagens/barrazul/topo_i.gif" width=108 border=0 name=topo></A></td>
+
+                                <td width="109"><A
+                                        onMouseOver="MM_swapImage('inicial','','/imagens/barrazul/inicial_a.gif',1)"
+                                        onmouseout=MM_swapImgRestore() href="/default.htm" target=_top><IMG height=13
+                                            src="/imagens/barrazul/inicial_i.gif" width=109 border=0 name=inicial></A>
+                                </td>
+
+                                <td width="13"><IMG height=13 src="/imagens/barrazul/separa.gif" width=13></td>
+
+                                <td><IMG height=13 src="/imagens/barrazul/restobarra.gif" width=148></td>
+
+                                <td width="13"><A href="/default/faleconosco.htm"><IMG height=13
+                                            src="/imagens/barrazul/mail.gif" width=13 border=0></A></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="111"><IMG height=52 src="/imagens/governodabahia.gif" width=111></td>
+                </tr>
+            </table><!-- #EndLibraryItem -->
+        </td>
+    </tr>
+    </table>
+</body>
+
+</HTML>
