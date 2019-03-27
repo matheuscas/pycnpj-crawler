@@ -4,7 +4,8 @@ from .util import get_response
 import mock
 
 keys = [
-    "cnpj"
+    "cnpj",
+    "incricao_estadual"
 ]
 
 

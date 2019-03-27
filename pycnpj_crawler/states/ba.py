@@ -7,7 +7,8 @@ class Bahia:
     POST_URL = "https://www.sefaz.ba.gov.br/scripts/cadastro/cadastroBa/result.asp"
 
     selectors = {
-        "cnpj": "#Table5 > tr > td > p:nth-child(1) > table > tr:nth-child(3) > td:nth-child(1)"
+        "cnpj": "#Table5 > tr > td > p:nth-child(1) > table > tr:nth-child(3) > td:nth-child(1)",
+        "incricao_estadual": "#Table5 > tr > td > p:nth-child(1) > table > tr:nth-child(3)  > td:nth-child(2)"
     }
 
     def _get_cnpj_raw_data(self, cnpj):
@@ -25,10 +26,17 @@ class Bahia:
     def get_cnpj_data(self, cnpj):
         html = self._get_cnpj_raw_data(cnpj).html
         raw_cnpj = html.find(self.selectors["cnpj"], first=True)
+        raw_incricao_estadual = html.find(self.selectors["incricao_estadual"], first=True)
 
         def extract_cnpj_number(raw_cnpj): 
             return raw_cnpj.text.split(":")[1].strip()
 
+        def extract_incricao_estadual(raw_incricao_estadual): 
+            return raw_incricao_estadual.text.replace("\xa0", " ").strip()
+
         return {
-            "cnpj": extract_cnpj_number(raw_cnpj)
+            "cnpj": extract_cnpj_number(raw_cnpj),
+            "incricao_estadual": extract_incricao_estadual(
+                raw_incricao_estadual
+            )
         }
