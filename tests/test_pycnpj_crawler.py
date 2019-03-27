@@ -5,7 +5,8 @@ import mock
 
 keys = [
     "cnpj",
-    "incricao_estadual"
+    "incricao_estadual",
+    "razao_social"
 ]
 
 
