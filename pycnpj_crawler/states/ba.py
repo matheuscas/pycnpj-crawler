@@ -36,19 +36,13 @@ class Bahia:
             first=True
         )
 
-        def extract_cnpj_number(raw_cnpj): 
-            return raw_cnpj.text.split(":")[1].strip()
-
-        def extract_incricao_estadual(raw_incricao_estadual):
-            return raw_incricao_estadual.text.replace("\xa0", " ").strip()
-
-        def extract_razao_social(raw_razao_social):
-            return raw_razao_social.text.replace("\xa0", " ").strip()
+        def get_value(raw_value):
+            no_special_char = raw_value.text.replace("\xa0", " ")
+            value = no_special_char.split(":")[1].strip()
+            return value
 
         return {
-            "cnpj": extract_cnpj_number(raw_cnpj),
-            "incricao_estadual": extract_incricao_estadual(
-                raw_incricao_estadual
-            ),
-            "razao_social": extract_razao_social(raw_razao_social)
+            "cnpj": get_value(raw_cnpj),
+            "incricao_estadual": get_value(raw_incricao_estadual),
+            "razao_social": get_value(raw_razao_social)
         }
