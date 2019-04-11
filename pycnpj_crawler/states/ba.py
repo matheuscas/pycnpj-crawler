@@ -55,4 +55,15 @@ class Bahia:
                 obj[k] = v
             return obj
 
-        return get_company_data_section()
+        def get_address_data_section():
+            obj = dict()
+            tds = html.find("#Table6")[1].text.split("\n")[2:]
+            for td in tds:
+                k, v = get_key_value_pair(td)
+                obj[k] = v
+            return obj
+
+        return {
+            **get_company_data_section(),
+            "endereco": get_address_data_section()
+        }

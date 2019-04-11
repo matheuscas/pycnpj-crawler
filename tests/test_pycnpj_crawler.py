@@ -9,7 +9,20 @@ keys = [
     "inscricao_estadual",
     "razao_social",
     "nome_fantasia",
-    "razao_social"
+    "razao_social",
+    "endereco"
+]
+
+address_keys = [
+    "numero",
+    "complemento",
+    "bairro_distrito",
+    "cep",
+    "municipio",
+    "uf",
+    "telefone",
+    "email",
+    "referencia"
 ]
 
 
@@ -34,3 +47,7 @@ def test_ba_extraction():
     for key in keys:
         assert key in list(data.keys())
         assert data[key] is not None
+
+    for key in address_keys:
+        assert key in list(data["endereco"].keys())
+        assert data["endereco"][key] is not None
