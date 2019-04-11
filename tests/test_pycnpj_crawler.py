@@ -2,10 +2,13 @@ from pycnpj_crawler import __version__
 from pycnpj_crawler.states.ba import Bahia
 from .util import get_response
 import mock
+# import pprint
 
 keys = [
     "cnpj",
-    "incricao_estadual",
+    "inscricao_estadual",
+    "razao_social",
+    "nome_fantasia",
     "razao_social"
 ]
 
@@ -27,6 +30,7 @@ def test_ba_extraction():
     cnpj = mock.Mock()
     ba = Bahia()
     data = ba.get_cnpj_data(cnpj)
-    print(data)
+    # pprint.pprint(data)
     for key in keys:
-        assert key in data and data[key] is not None
+        assert key in list(data.keys())
+        assert data[key] is not None
