@@ -1,4 +1,5 @@
 from requests_html import HTMLSession
+from .crawling import wait_random_delay
 import unidecode
 
 
@@ -24,6 +25,7 @@ class Bahia:
             "B1": "CNPJ++-%3E",
             "IE": ""
         }
+        wait_random_delay()
         return session.post(self.POST_URL, data=payload)
 
     def get_cnpj_data(self, cnpj):
