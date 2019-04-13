@@ -63,7 +63,19 @@ class Bahia:
                 obj[k] = v
             return obj
 
+        def get_activities_data_section():
+            atividades = html.find("#Table7")[0].text.split("\n")[2:]
+            atividade_principal = atividades[1].split("-")
+            atividade = {
+                "principal": {
+                    "id": atividade_principal[0],
+                    "descricao": atividade_principal[1]
+                }
+            }
+            return atividade
+
         return {
             **get_company_data_section(),
-            "endereco": get_address_data_section()
+            "endereco": get_address_data_section(),
+            "atividades": get_activities_data_section()
         }
