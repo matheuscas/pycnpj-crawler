@@ -1,7 +1,8 @@
-from pycnpj_crawler import __version__
+from pycnpj_crawler import __version__, crawler
 from pycnpj_crawler.states.ba import Bahia
 from .util import get_response
 import mock
+import pytest
 # import pprint
 
 keys = [
@@ -32,7 +33,7 @@ activities_keys = [
 
 
 def test_version():
-    assert __version__ == '0.1.0'
+    assert __version__ == '0.3.0'
 
 
 def get_ba_response(*args):
