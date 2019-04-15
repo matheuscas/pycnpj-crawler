@@ -1,5 +1,5 @@
 from requests_html import HTMLSession
-from .crawling import wait_random_delay
+from .crawling import wait_random_delay, get_random_user_agent
 import unidecode
 
 
@@ -26,7 +26,12 @@ class Bahia:
             "IE": ""
         }
         wait_random_delay()
-        return session.post(self.POST_URL, data=payload)
+        return session.post(
+            self.POST_URL,
+            data=payload,
+            headers={
+                'User-Agent': get_random_user_agent()
+            })
 
     def get_cnpj_data(self, cnpj):
         html = self._get_cnpj_raw_data(cnpj).html
