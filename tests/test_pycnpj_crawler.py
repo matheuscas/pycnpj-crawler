@@ -60,3 +60,11 @@ def test_ba_extraction():
     for key in activities_keys:
         assert key in list(data["atividades"].keys())
         assert data["atividades"][key] is not None
+
+
+def test_unavailable_state():
+    cnpj = "39346861005716"
+    state = "bb"
+    error_msg = f"No module named 'pycnpj_crawler.states.{state}'"
+    with pytest.raises(ModuleNotFoundError, match=error_msg):
+        crawler.get_cnpj_data(cnpj, state)
