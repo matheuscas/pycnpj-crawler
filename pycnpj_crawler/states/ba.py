@@ -5,8 +5,8 @@ import unidecode
 
 class Bahia:
 
-    URL_BASE = "https://www.sefaz.ba.gov.br/scripts/cadastro/cadastroBa/consultaBa.asp"
-    POST_URL = "https://www.sefaz.ba.gov.br/scripts/cadastro/cadastroBa/result.asp"
+    URL_BASE = "http://www.sefaz.ba.gov.br/scripts/cadastro/cadastroBa/consultaBa.asp"
+    POST_URL = "http://www.sefaz.ba.gov.br/scripts/cadastro/cadastroBa/result.asp"
 
     selectors = {
         "cnpj": "#Table5 > tr > td > p:nth-child(1) > table > tr:nth-child(3) > td:nth-child(1)",
