@@ -1,4 +1,5 @@
 from pycnpj_crawler.states.util import load_state_class
+from pycpfcnpj import cpfcnpj
 
 
 def get_cnpj_data(cnpj, state="ba"):
@@ -13,5 +14,8 @@ def get_cnpj_data(cnpj, state="ba"):
         cnpj (obj)
     """
 
+    valid = cpfcnpj.validate(cnpj)
+    if (not valid):
+        raise Exception("CNPJ inválido")
     state = load_state_class(state)
     return state().get_cnpj_data(cnpj)
