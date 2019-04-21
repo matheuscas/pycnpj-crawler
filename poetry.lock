@@ -531,6 +531,14 @@ version = "2.5.0"
 
 [[package]]
 category = "main"
+description = "Python module for brazilian register numbers for persons (CPF) and companies (CNPJ)."
+name = "pycpfcnpj"
+optional = false
+python-versions = "*"
+version = "1.5.1"
+
+[[package]]
+category = "main"
 description = "A port of node.js's EventEmitter to python."
 name = "pyee"
 optional = false
@@ -833,7 +841,7 @@ version = "3.4.2"
 notebook = ">=4.4.1"
 
 [metadata]
-content-hash = "c276912c9616932ee2a752b6ae4f4b82911b0bdffbe001c7876ae7f7be23e868"
+content-hash = "d3591bd2184c6463e066d076ef9015d31eaaad3c92233d3ab018e57b607d6e03"
 python-versions = "^3.7"
 
 [metadata.hashes]
@@ -887,6 +895,7 @@ prompt-toolkit = ["11adf3389a996a6d45cc277580d0d53e8a5afd281d0c9ec71b28e6f121463
 ptyprocess = ["923f299cc5ad920c68f2bc0bc98b75b9f838b93b599941a6b63ddbc2476394c0", "d7cc528d76e76342423ca640335bd3633420dc1366f258cb31d05e865ef5ca1f"]
 py = ["64f65755aee5b381cea27766a3a147c3f15b9b6b9ac88676de66ba2ae36793fa", "dc639b046a6e2cff5bbe40194ad65936d6ba360b52b3c3fe1d08a82dd50b5e53"]
 pycodestyle = ["95a2219d12372f05704562a14ec30bc76b05a5b297b21a5dfe3f6fac3491ae56", "e40a936c9a450ad81df37f549d676d127b1b66000a6c500caa2b085bc0ca976c"]
+pycpfcnpj = ["4a452f9193b5ee6053a82189e6dcbc012a8ed7e877aefd1501716930cbb92822", "d139337c8b2c137b89a24b364c1c369ea0127a1a273ccaa1e97d981d1359b32f"]
 pyee = ["47f8fa96d6dee61c82001831e1fbba55f3f808003a322d0e6653aa01c59f6b9e", "4ec22817297b7024f89721cc34f790ee2767c5b5ca44284c565ee643abafbe32"]
 pyflakes = ["17dbeb2e3f4d772725c777fabc446d5634d1038f234e77343108ce445ea69ce0", "d976835886f8c5b31d47970ed689944a0262b5f3afa00a5a7b4dc81e5449f8a2"]
 pygments = ["5ffada19f6203563680669ee7f53b64dabbeb100eb51b61996085e99c03b284a", "e8218dd399a61674745138520d0d4cf2621d7e032439341bc3f647bff125818d"]

@@ -8,6 +8,7 @@ authors = ["Matheus Cardoso <matheus.mcas@gmail.com>"]
 python = "^3.7"
 requests-html = "^0.10.0"
 unidecode = "^1.0"
+pycpfcnpj = "^1.5"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.0"
