@@ -19,3 +19,7 @@ def _get(mock_file_name):
 
 def get_response(state):
     return _get(f"{state}_mock.html")
+
+
+def get_not_found_response(state):
+    return _get(f"{state}_mock_not_found.html")
