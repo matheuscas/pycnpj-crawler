@@ -1,6 +1,6 @@
 from pycnpj_crawler import __version__, crawler
 from pycnpj_crawler.states.ba import Bahia
-from .util import get_response
+from .util import get_response, get_not_found_response
 import mock
 import pytest
 # import pprint
@@ -40,6 +40,10 @@ def get_ba_response(*args):
     return get_response("ba")
 
 
+def get_not_found_ba_response(*args):
+    return get_not_found_response("ba")
+
+
 @mock.patch.object(
     Bahia,
     '_get_cnpj_raw_data',
@@ -61,6 +65,18 @@ def test_ba_extraction():
     for key in activities_keys:
         assert key in list(data["atividades"].keys())
         assert data["atividades"][key] is not None
+
+
+@mock.patch.object(
+    Bahia,
+    '_get_cnpj_raw_data',
+    new=get_not_found_ba_response
+)
+def test_non_existing_cnpj():
+    cnpj = "00342735000101"
+    error_msg = "CNPJ não encontrado"
+    with pytest.raises(Exception, match=error_msg):
+        crawler.get_cnpj_data(cnpj)
 
 
 def test_unavailable_state():
