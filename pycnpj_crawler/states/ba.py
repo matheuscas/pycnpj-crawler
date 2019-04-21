@@ -81,8 +81,12 @@ class Bahia:
             }
             return atividade
 
-        return {
-            **get_company_data_section(),
-            "endereco": get_address_data_section(),
-            "atividades": get_activities_data_section()
-        }
+        try:
+            result = {
+                **get_company_data_section(),
+                "endereco": get_address_data_section(),
+                "atividades": get_activities_data_section()
+            }
+            return result
+        except Exception:
+            raise Exception("CNPJ não encontrado")
