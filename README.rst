@@ -9,7 +9,6 @@ Se você estava procurando um módulo para validar e gerar números de CNPJ, o `
 Como usar:
 ----------
 .. code-block:: python
-   :emphasize-lines: 3,5
 
    from pycnpj_crawler import crawler
    cnpj = "00342735000101"
@@ -58,9 +57,10 @@ Estados disponíveis:
 Como adicionar um novo estado:
 ------------------------------
 
-1 - Adicione um modulo do novo estado no pacote `states` nomeando-o com a sigla do estado, por exemplo,
-`sp.py` ou `pb.py`.
-2 - Adicione a classe do estado no mapeamento em `states.util.py`: 
+1 - Adicione um modulo do novo estado no pacote `states <https://github.com/matheuscas/pycnpj-crawler/tree/master/pycnpj_crawler/states>`_ nomeando-o com a sigla do estado, por exemplo,
+**sp.py** ou **pb.py**.
+
+2 - Adicione a classe do estado no mapeamento em `states.util.py <https://github.com/matheuscas/pycnpj-crawler/blob/master/pycnpj_crawler/states/util.py>`_: 
 
 .. code-block:: python
     BA = "ba"
@@ -75,12 +75,13 @@ O módulo do estado é carregado dinâmicamente usando esse mapeamento.
 3 - A classe do seu estado tem que ter, pelo menos, o seguinte método que recebe o número
 do CNPJ. 
 
-    .. code-block:: python
-        def get_cnpj_data(self, cnpj):
-            pass
+.. code-block:: python
+
+   def get_cnpj_data(self, cnpj):
+      pass
 
 
-Esse é um trabalho em progresso e toda ajuda é bem vinda. 
+Esse é um **trabalho em progresso** e toda ajuda é bem vinda. 
 
 ==============
 pycnpj-crawler
