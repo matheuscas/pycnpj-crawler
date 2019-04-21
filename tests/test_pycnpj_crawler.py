@@ -79,6 +79,13 @@ def test_non_existing_cnpj():
         crawler.get_cnpj_data(cnpj)
 
 
+def test_invalid_cnpj():
+    cnpj = "00342735000102"
+    error_msg = "CNPJ inválido"
+    with pytest.raises(Exception, match=error_msg):
+        crawler.get_cnpj_data(cnpj)
+
+
 def test_unavailable_state():
     cnpj = "39346861005716"
     state = "bb"
