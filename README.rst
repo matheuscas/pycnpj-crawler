@@ -12,6 +12,8 @@ A ideia principal é ser simples e leve. Sempre que possível, não usar um brow
 
 .. image:: https://travis-ci.org/matheuscas/pycnpj-crawler.svg?branch=master
     :target: https://travis-ci.org/matheuscas/pycnpj-crawler
+.. image:: https://codecov.io/gh/matheuscas/pycnpj-crawler/branch/master/graph/badge.svg
+  :target: https://codecov.io/gh/matheuscas/pycnpj-crawler
 
 
 Instale:
