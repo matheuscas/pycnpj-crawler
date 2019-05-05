@@ -2,11 +2,10 @@
 Pycnpj-crawler
 ==============
 
-Esse módulo busca nos sites de cada estado os dados de um CNPJ. 
+Descrição:
+----------
 
-Se você estava procurando um módulo para validar e gerar números de CNPJ, o `pycpfcnpj <https://github.com/matheuscas/pycpfcnpj>`_ é o seu caso. ;)
-
-A ideia principal é ser simples e leve. Sempre que possível, não usar um browser para buscar e renderizar dados. Puppeteer, Selenium e outros são grandes ferramentas, mas consomem mais recursos. 
+Esse módulo busca nos sites de cada estado os dados de um CNPJ. Veja abaixo o(s) estado(s) suportado(s).
 
 **Somente Python 3!**
 
@@ -14,9 +13,15 @@ A ideia principal é ser simples e leve. Sempre que possível, não usar um brow
     :target: https://travis-ci.org/matheuscas/pycnpj-crawler
 .. image:: https://codecov.io/gh/matheuscas/pycnpj-crawler/branch/master/graph/badge.svg
   :target: https://codecov.io/gh/matheuscas/pycnpj-crawler
+.. image:: https://badge.fury.io/py/pycnpj-crawler.svg
+    :target: https://badge.fury.io/py/pycnpj-crawler
+    
+Projetos relacionados:
+----------------------
+- `pycpfcnpj <https://github.com/matheuscas/pycpfcnpj>`_ - Módulo python para validar e gerar números de CPF e CNPJ.
 
 
-Instale:
+Como instalar:
 --------
 .. code-block:: shell
 
@@ -32,7 +37,7 @@ Como usar:
    resultado = crawler.get_cnpj_data(cnpj, estado)
 
 
-Retorno:
+Exemplo de retorno dos dados de um CNPJ:
 --------
 .. code-block:: python
 
@@ -100,7 +105,7 @@ do CNPJ.
 Esse é um **trabalho em progresso** e toda ajuda é bem vinda. 
 
 ==============
-pycnpj-crawler
+Pycnpj-crawler
 ==============
 
 English version comming soon. 
